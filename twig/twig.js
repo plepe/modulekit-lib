@@ -12,7 +12,13 @@ function twig_render_into(dom_node, template_id, data) {
     twig_render_into_final(dom_node, template_id, data);
   }
   else {
-    ajax('templates/' + template_id, null, twig_render_into_final.bind(this, dom_node, template_id, data));
+    var req = new XMLHttpRequest();
+    req.open('GET', 'templates/' + template_id, true);
+    req.onreadystatechange = function(req, callnext) {
+      if(req.readyState == 4)
+        callnext(req.responseText);
+    }.bind(this, req, twig_render_into_final.bind(this, dom_node, template_id, data));
+    req.send(null);
   }
 }
 
