@@ -7,7 +7,7 @@ function sql($query, $mysql_data=null) {
   if(!$mysql_data)
     $mysql_data=$mysql_default;
 
-  if(!mysql_select_db($mysql_data[db], $mysql_data[linkid])) {
+  if(!mysql_select_db($mysql_data['db'], $mysql_data['linkid'])) {
     echo "Can't select database!<br>";
     exit;
   }
@@ -25,7 +25,7 @@ function sql($query, $mysql_data=null) {
       FILE_APPEND|LOCK_EX);
   }
 
-  if(!$res=mysql_query($query, $mysql_data[linkid])) {
+  if(!$res=mysql_query($query, $mysql_data['linkid'])) {
     echo mysql_error();
     exit;
   }
@@ -42,14 +42,14 @@ function sql_connect(&$mysql_data=null) {
   }
 
   if($design_hidden)
-    $mysql_data[debug]=0;
+    $mysql_data['debug']=0;
 
-  if(!$mysql_data[linkid]=mysql_connect($mysql_data[host], $mysql_data[user], $mysql_data[passwd])) {
+  if(!$mysql_data['linkid']=mysql_connect($mysql_data['host'], $mysql_data['user'], $mysql_data['passwd'])) {
     echo "Fehler beim Verbindungsaufbau!<br>";
     exit;
   }
 
-  if(!mysql_select_db($mysql_data[db], $mysql_data[linkid])) {
+  if(!mysql_select_db($mysql_data['db'], $mysql_data['linkid'])) {
     echo "Can't select database!<br>";
     exit;
   }
@@ -68,8 +68,8 @@ function sql_close($mysql_data=null) {
   if(!$mysql_data)
     $mysql_data=$mysql_default;
 
-  mysql_close($mysql_data[linkid]);
-  unset($mysql_data[linkid]);
+  mysql_close($mysql_data['linkid']);
+  unset($mysql_data['linkid']);
 }
 
 function sql_fetch_assoc($res) {
