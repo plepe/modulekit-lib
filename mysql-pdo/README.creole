@@ -12,4 +12,8 @@ Then:
 
 sql_connect($mysql);
 
-sql("select * from foo", [$mysql])
+$res = sql("select * from foo", [$mysql])
+while($elem = $res->fetch()) {
+  print_r($elem);
+}
+$res->closeCursor();
