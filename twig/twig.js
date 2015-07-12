@@ -1,6 +1,9 @@
 var template_cache = {};
 
 function twig_render_into_final(dom_node, template_id, data, callback, result) {
+  if(typeof dom_node == "string")
+    dom_node = document.getElementById(dom_node);
+
   if(!(template_id in template_cache))
     template_cache[template_id] = twig({ data: result });
 
