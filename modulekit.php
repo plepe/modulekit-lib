@@ -1,7 +1,7 @@
 <?php
-$id="modulekit-base";
+$id="modulekit-lib";
 
-$name="Modulekit - Basic extensions";
+$name="Modulekit - External libraries";
 
 $modules_path = "";
 
