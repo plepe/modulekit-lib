@@ -1,0 +1,19 @@
+Create entr(ies) in conf.php:
+
+$mysql=array(
+  'db'		=>"DB",
+  'host'	=>"localhost",
+  'user'	=>"USER",
+  'passwd'	=>"PASSWORD",
+  'debug'	=>false,
+);
+
+Then:
+
+sql_connect($mysql);
+
+$res = sql("select * from foo", [$mysql])
+while($elem = $res->fetch()) {
+  print_r($elem);
+}
+$res->closeCursor();
