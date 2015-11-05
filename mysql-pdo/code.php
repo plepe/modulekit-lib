@@ -86,7 +86,7 @@ function sql_fetch($res) {
 }
 
 function sql_num_rows($res) {
-  return $res->fetch();
+  return $res->rowCount();
 }
 
 function sql_quote($str, $mysql_data=null) {
