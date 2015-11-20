@@ -45,5 +45,6 @@ function twig_render_custom(template, data) {
 }
 
 register_hook("init", function() {
-  call_hooks("twig_init");
+  if(window['Twig'])
+    call_hooks("twig_init");
 });
