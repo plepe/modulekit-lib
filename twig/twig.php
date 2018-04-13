@@ -1,5 +1,6 @@
 <?php
-if(include "{$modulekit['root_path']}/lib/Twig/lib/Twig/Autoloader.php") {
+if((@include "{$modulekit['root_path']}/vendor/twig/twig/lib/Twig/Autoloader.php") ||
+   (@include "{$modulekit['root_path']}/lib/Twig/lib/Twig/Autoloader.php")) {
 Twig_Autoloader::register();
 
 class CustomTwigTemplates implements Twig_LoaderInterface, Twig_ExistsLoaderInterface
